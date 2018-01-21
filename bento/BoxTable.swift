@@ -8,7 +8,7 @@
 
 import UIKit
 
-class BoxTable: UIView {
+class BoxTable: UIView, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var tableView : UITableView!
 
@@ -45,8 +45,56 @@ class BoxTable: UIView {
         return view
     }
     
+    
     func setUpDisplay(){
+        self.view.backgroundColor = .red
+        self.tableView.backgroundColor = .orange
         
+        let nib = UINib(nibName: "BoxTableCell", bundle: nil)
+        tableView.register(nib, forCellReuseIdentifier: "boxTableCell")
+
     }
+    
+    //
+    // MARK: UITableView dataSource
+    //
+    
+    func numberOfSections(in tableView: UITableView) -> Int{
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 4
+    }
+    
+    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat{
+        return 60
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat{
+        return UITableViewAutomaticDimension
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "boxTableCell", for: indexPath) as! BoxTableCell
+        cell.selectionStyle = .none
+        
+        cell.titleLabel.text = "yo yo yoyo yo yoyo yo yoyo yo yoyo yo yoyo yo yoyo yo yoyo yo yo"
+        cell.titleLabel.textColor = .black
+        cell.contentView.backgroundColor = .green
+        
+        return cell
+    }
+    
+    
+    //
+    // MARK: UITableView delegate
+    //
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
+        print("didSelectRowAt \(indexPath.row)")
+    }
+
 
 }

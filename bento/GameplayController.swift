@@ -47,9 +47,16 @@ class GameplayController: UIViewController {
         
         
         // the board:
-        var boardFrame = CGRect(x: 0, y: 0, width: 300, height: 300)
+        var boardFrame = CGRect(x: 20, y: 40, width: 300, height: 300)
         let board = Board(frame: boardFrame)
-        self.view.addSubview(board.view)
+        self.view.addSubview(board)
+
+        // boxTableView:
+        var f1 = CGRect(x: 0, y: 0, width: 300, height: 200)
+        let bt = BoxTable(frame: f1)
+        self.view.addSubview(bt)
+        f1.origin = CGPoint(x: 10, y: 400)
+        bt.frame = f1
         
     }
     

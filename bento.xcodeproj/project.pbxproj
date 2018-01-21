@@ -16,6 +16,8 @@
 		8DC545002015330500992D90 /* Board.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8DC544FF2015330500992D90 /* Board.xib */; };
 		8DC5450220153A5B00992D90 /* BoxTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DC5450120153A5B00992D90 /* BoxTable.swift */; };
 		8DC5450420153A7C00992D90 /* BoxTable.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8DC5450320153A7C00992D90 /* BoxTable.xib */; };
+		8DC5450720153EAB00992D90 /* BoxTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DC5450520153EAB00992D90 /* BoxTableCell.swift */; };
+		8DC5450820153EAB00992D90 /* BoxTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8DC5450620153EAB00992D90 /* BoxTableCell.xib */; };
 		8DE18649201522D30016FAC2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DE18648201522D30016FAC2 /* AppDelegate.swift */; };
 		8DE1864E201522D30016FAC2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8DE1864C201522D30016FAC2 /* Main.storyboard */; };
 		8DE18650201522D30016FAC2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8DE1864F201522D30016FAC2 /* Assets.xcassets */; };
@@ -32,6 +34,8 @@
 		8DC544FF2015330500992D90 /* Board.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Board.xib; sourceTree = "<group>"; };
 		8DC5450120153A5B00992D90 /* BoxTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoxTable.swift; sourceTree = "<group>"; };
 		8DC5450320153A7C00992D90 /* BoxTable.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BoxTable.xib; sourceTree = "<group>"; };
+		8DC5450520153EAB00992D90 /* BoxTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoxTableCell.swift; sourceTree = "<group>"; };
+		8DC5450620153EAB00992D90 /* BoxTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BoxTableCell.xib; sourceTree = "<group>"; };
 		8DE18645201522D30016FAC2 /* bento.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = bento.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8DE18648201522D30016FAC2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8DE1864D201522D30016FAC2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -84,6 +88,8 @@
 				8DC544FF2015330500992D90 /* Board.xib */,
 				8DC5450120153A5B00992D90 /* BoxTable.swift */,
 				8DC5450320153A7C00992D90 /* BoxTable.xib */,
+				8DC5450520153EAB00992D90 /* BoxTableCell.swift */,
+				8DC5450620153EAB00992D90 /* BoxTableCell.xib */,
 			);
 			path = bento;
 			sourceTree = "<group>";
@@ -149,6 +155,7 @@
 			files = (
 				8DC544F820152B4900992D90 /* BoxView.xib in Resources */,
 				8DC545002015330500992D90 /* Board.xib in Resources */,
+				8DC5450820153EAB00992D90 /* BoxTableCell.xib in Resources */,
 				8DC5450420153A7C00992D90 /* BoxTable.xib in Resources */,
 				8DE18653201522D30016FAC2 /* LaunchScreen.storyboard in Resources */,
 				8DE18650201522D30016FAC2 /* Assets.xcassets in Resources */,
@@ -169,6 +176,7 @@
 				8DC544F620152B3C00992D90 /* BoxView.swift in Sources */,
 				8DC544EE201525CB00992D90 /* GameplayController.swift in Sources */,
 				8DC5450220153A5B00992D90 /* BoxTable.swift in Sources */,
+				8DC5450720153EAB00992D90 /* BoxTableCell.swift in Sources */,
 				8DC544F22015295000992D90 /* GameManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
