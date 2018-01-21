@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8DC544EC201525B400992D90 /* MenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DC544EB201525B400992D90 /* MenuController.swift */; };
+		8DC544EE201525CB00992D90 /* GameplayController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DC544ED201525CB00992D90 /* GameplayController.swift */; };
 		8DE18649201522D30016FAC2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DE18648201522D30016FAC2 /* AppDelegate.swift */; };
 		8DE1864B201522D30016FAC2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DE1864A201522D30016FAC2 /* ViewController.swift */; };
 		8DE1864E201522D30016FAC2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8DE1864C201522D30016FAC2 /* Main.storyboard */; };
@@ -15,6 +17,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8DC544EB201525B400992D90 /* MenuController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuController.swift; sourceTree = "<group>"; };
+		8DC544ED201525CB00992D90 /* GameplayController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameplayController.swift; sourceTree = "<group>"; };
 		8DE18645201522D30016FAC2 /* bento.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = bento.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8DE18648201522D30016FAC2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8DE1864A201522D30016FAC2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -60,6 +64,8 @@
 				8DE1864F201522D30016FAC2 /* Assets.xcassets */,
 				8DE18651201522D30016FAC2 /* LaunchScreen.storyboard */,
 				8DE18654201522D30016FAC2 /* Info.plist */,
+				8DC544EB201525B400992D90 /* MenuController.swift */,
+				8DC544ED201525CB00992D90 /* GameplayController.swift */,
 			);
 			path = bento;
 			sourceTree = "<group>";
@@ -137,7 +143,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				8DE1864B201522D30016FAC2 /* ViewController.swift in Sources */,
+				8DC544EC201525B400992D90 /* MenuController.swift in Sources */,
 				8DE18649201522D30016FAC2 /* AppDelegate.swift in Sources */,
+				8DC544EE201525CB00992D90 /* GameplayController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
