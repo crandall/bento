@@ -35,28 +35,34 @@ class GameplayController: UIViewController {
     
     func setUp(){
         print("setUp")
-        var f = CGRect(x: 20, y: 20, width: 100, height: 100)
-        let b = BoxView(frame: f)
         
-        b.view.backgroundColor = .green
+        self.view.addSubview(GameManager.shared.gameView)
         
-        f.origin = CGPoint(x: 100, y: 200)
-        b.view.frame = f
-        
-        self.view.addSubview(b.view)
+        print("yo")
         
         
-        // the board:
-        var boardFrame = CGRect(x: 20, y: 40, width: 300, height: 300)
-        let board = Board(frame: boardFrame)
-        self.view.addSubview(board)
-
-        // boxTableView:
-        var f1 = CGRect(x: 0, y: 0, width: 300, height: 200)
-        let bt = BoxTable(frame: f1)
-        self.view.addSubview(bt)
-        f1.origin = CGPoint(x: 10, y: 400)
-        bt.frame = f1
+//        var f = CGRect(x: 20, y: 20, width: 100, height: 100)
+//        let b = BoxView(frame: f)
+//
+//        b.view.backgroundColor = .green
+//
+//        f.origin = CGPoint(x: 100, y: 200)
+//        b.view.frame = f
+//
+//        self.view.addSubview(b.view)
+//
+//
+//        // the board:
+//        var boardFrame = CGRect(x: 20, y: 40, width: 300, height: 300)
+//        let board = Board(frame: boardFrame)
+//        self.view.addSubview(board)
+//
+//        // boxTableView:
+//        var f1 = CGRect(x: 0, y: 0, width: 300, height: 200)
+//        let bt = BoxTable(frame: f1)
+//        self.view.addSubview(bt)
+//        f1.origin = CGPoint(x: 10, y: 400)
+//        bt.frame = f1
         
     }
     

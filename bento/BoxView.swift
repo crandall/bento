@@ -11,11 +11,18 @@ import UIKit
 class BoxView: UIView {
 
     var view: UIView!
+
+    @IBOutlet weak var idLabel : UILabel!
     @IBOutlet weak var boxIV : UIImageView!
     @IBOutlet weak var panelIV : UIImageView!
-    
     @IBOutlet weak var panelWidthLC : NSLayoutConstraint!
     @IBOutlet weak var panelHeightLC : NSLayoutConstraint!
+    
+    var boxId : Int = 0 {
+        didSet{
+            idLabel.text = "\(boxId)"
+        }
+    }
 
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -50,9 +57,17 @@ class BoxView: UIView {
     func setUpDisplay(){
         
         panelHeightLC.constant = self.frame.height - 10
+        panelWidthLC.constant = 5.0
+        idLabel.backgroundColor = .clear
+        self.view.layer.borderColor = UIColor.green.cgColor
+        self.view.layer.borderWidth = 1.0
         
 //        self.view.layer.borderColor = UIColor.orange.cgColor
 //        self.view.layer.borderWidth = 2
+        
+    }
+    
+    func seetSelected(doSelect:Bool){
         
     }
 

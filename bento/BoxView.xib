@@ -11,6 +11,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BoxView" customModule="bento" customModuleProvider="target">
             <connections>
                 <outlet property="boxIV" destination="IlA-wl-R38" id="8FI-eY-1O7"/>
+                <outlet property="idLabel" destination="FKm-Of-Pat" id="7bC-Hb-gIq"/>
                 <outlet property="panelHeightLC" destination="Y7Y-m4-Poo" id="XDq-AE-mhr"/>
                 <outlet property="panelIV" destination="RnZ-UN-h3C" id="Kdy-rD-iI0"/>
                 <outlet property="panelWidthLC" destination="uqA-2q-Gi9" id="P0x-vM-ajB"/>
@@ -31,15 +32,23 @@
                         <constraint firstAttribute="width" constant="5" id="uqA-2q-Gi9"/>
                     </constraints>
                 </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FKm-Of-Pat">
+                    <rect key="frame" x="6" y="6" width="42" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
+                <constraint firstItem="FKm-Of-Pat" firstAttribute="top" secondItem="IlA-wl-R38" secondAttribute="top" constant="6" id="EQs-9k-Q8k"/>
                 <constraint firstAttribute="bottom" secondItem="IlA-wl-R38" secondAttribute="bottom" id="O5Q-Cy-9HM"/>
                 <constraint firstItem="IlA-wl-R38" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="OGb-J2-vwe"/>
                 <constraint firstItem="IlA-wl-R38" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="b4l-zg-hHx"/>
                 <constraint firstItem="RnZ-UN-h3C" firstAttribute="centerY" secondItem="IlA-wl-R38" secondAttribute="centerY" id="c7x-rn-SGm"/>
                 <constraint firstAttribute="trailing" secondItem="IlA-wl-R38" secondAttribute="trailing" id="k1d-2A-Lr0"/>
                 <constraint firstItem="RnZ-UN-h3C" firstAttribute="centerX" secondItem="IlA-wl-R38" secondAttribute="centerX" id="qF6-by-GAJ"/>
+                <constraint firstItem="FKm-Of-Pat" firstAttribute="leading" secondItem="IlA-wl-R38" secondAttribute="leading" constant="6" id="qZL-RO-zaY"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
         </view>
