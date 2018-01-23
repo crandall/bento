@@ -8,9 +8,10 @@
 
 import UIKit
 
-class GameplayController: UIViewController {
+class GameplayController: UIViewController, TurnManagerDelegate {
 
     @IBOutlet weak var titleLabel : UILabel!
+    var turnManager : TurnManagerView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,6 +40,10 @@ class GameplayController: UIViewController {
         self.view.addSubview(GameManager.shared.gameView)
         
         print("yo")
+        
+        let f = CGRect(x: 10, y: 10, width: 200, height: 100)
+        turnManager = TurnManagerView(frame: f)
+        self.view.addSubview(turnManager)
         
         
 //        var f = CGRect(x: 20, y: 20, width: 100, height: 100)
@@ -71,4 +76,16 @@ class GameplayController: UIViewController {
         self.navigationController?.popViewController(animated: true)
     }
 
+    //
+    // MARK: TurnManagerDelegate
+    //
+    
+    func onRotate(){
+        print("onRotate")
+    }
+    
+    func onMovePiece(){
+        print("onMovePiece")
+    }
+    
 }

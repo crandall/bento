@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8D6C88ED2016B2D500B1BE2C /* TurnManagerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D6C88EC2016B2D500B1BE2C /* TurnManagerView.swift */; };
+		8D6C88EF2016B2E400B1BE2C /* TurnManagerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8D6C88EE2016B2E400B1BE2C /* TurnManagerView.xib */; };
 		8DC544EC201525B400992D90 /* MenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DC544EB201525B400992D90 /* MenuController.swift */; };
 		8DC544EE201525CB00992D90 /* GameplayController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DC544ED201525CB00992D90 /* GameplayController.swift */; };
 		8DC544F22015295000992D90 /* GameManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DC544F12015295000992D90 /* GameManager.swift */; };
@@ -25,6 +27,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8D6C88EC2016B2D500B1BE2C /* TurnManagerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TurnManagerView.swift; sourceTree = "<group>"; };
+		8D6C88EE2016B2E400B1BE2C /* TurnManagerView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TurnManagerView.xib; sourceTree = "<group>"; };
 		8DC544EB201525B400992D90 /* MenuController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuController.swift; sourceTree = "<group>"; };
 		8DC544ED201525CB00992D90 /* GameplayController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameplayController.swift; sourceTree = "<group>"; };
 		8DC544F12015295000992D90 /* GameManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameManager.swift; sourceTree = "<group>"; };
@@ -90,6 +94,8 @@
 				8DC5450320153A7C00992D90 /* BoxTable.xib */,
 				8DC5450520153EAB00992D90 /* BoxTableCell.swift */,
 				8DC5450620153EAB00992D90 /* BoxTableCell.xib */,
+				8D6C88EC2016B2D500B1BE2C /* TurnManagerView.swift */,
+				8D6C88EE2016B2E400B1BE2C /* TurnManagerView.xib */,
 			);
 			path = bento;
 			sourceTree = "<group>";
@@ -156,6 +162,7 @@
 				8DC544F820152B4900992D90 /* BoxView.xib in Resources */,
 				8DC545002015330500992D90 /* Board.xib in Resources */,
 				8DC5450820153EAB00992D90 /* BoxTableCell.xib in Resources */,
+				8D6C88EF2016B2E400B1BE2C /* TurnManagerView.xib in Resources */,
 				8DC5450420153A7C00992D90 /* BoxTable.xib in Resources */,
 				8DE18653201522D30016FAC2 /* LaunchScreen.storyboard in Resources */,
 				8DE18650201522D30016FAC2 /* Assets.xcassets in Resources */,
@@ -172,6 +179,7 @@
 			files = (
 				8DC544EC201525B400992D90 /* MenuController.swift in Sources */,
 				8DE18649201522D30016FAC2 /* AppDelegate.swift in Sources */,
+				8D6C88ED2016B2D500B1BE2C /* TurnManagerView.swift in Sources */,
 				8DC544FE201532FB00992D90 /* Board.swift in Sources */,
 				8DC544F620152B3C00992D90 /* BoxView.swift in Sources */,
 				8DC544EE201525CB00992D90 /* GameplayController.swift in Sources */,
