@@ -8,9 +8,15 @@
 
 import UIKit
 
+protocol GameManagerDelegate{
+    func gameManagerTestFunc()
+}
+
 class GameManager: NSObject {
 
     static let shared = GameManager()
+    
+    var delegate : GameManagerDelegate?
     
     var gameView : UIView!
     var gameFrame : CGRect!

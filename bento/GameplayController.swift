@@ -8,10 +8,17 @@
 
 import UIKit
 
-class GameplayController: UIViewController, TurnManagerDelegate {
+enum GameState {
+    case none
+    case rotateBox
+    case movePiece
+}
+
+class GameplayController: UIViewController, GameManagerDelegate, TurnManagerDelegate {
 
     @IBOutlet weak var titleLabel : UILabel!
     var turnManager : TurnManagerView!
+    var gameState : GameState = .none
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,11 +45,11 @@ class GameplayController: UIViewController, TurnManagerDelegate {
         print("setUp")
         
         self.view.addSubview(GameManager.shared.gameView)
-        
-        print("yo")
-        
-        let f = CGRect(x: 10, y: 10, width: 200, height: 100)
+
+        let bounds = UIScreen.main.bounds
+        let f = CGRect(x: 10, y: 40, width: bounds.width - 20, height: 60)
         turnManager = TurnManagerView(frame: f)
+        turnManager.delegate = self
         self.view.addSubview(turnManager)
         
         
@@ -77,15 +84,23 @@ class GameplayController: UIViewController, TurnManagerDelegate {
     }
 
     //
+    // MARK: GameManagerDelegate
+    //
+
+    func gameManagerTestFunc(){
+        print("delegate:gameManagerTestFunc")
+    }
+
+    //
     // MARK: TurnManagerDelegate
     //
     
     func onRotate(){
-        print("onRotate")
+        turnManager.updateLabel(text: "Select box to Rotate")
     }
     
     func onMovePiece(){
-        print("onMovePiece")
+        turnManager.updateLabel(text: "Move Your Piece")
     }
     
 }

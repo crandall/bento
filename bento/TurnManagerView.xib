@@ -25,7 +25,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bTK-MY-vTO">
-                    <rect key="frame" x="20" y="20" width="75" height="30"/>
+                    <rect key="frame" x="20" y="4" width="75" height="30"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="30" id="LnH-HG-vlc"/>
                     </constraints>
@@ -35,7 +35,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3D2-CT-Yds">
-                    <rect key="frame" x="135" y="20" width="79" height="30"/>
+                    <rect key="frame" x="276" y="4" width="79" height="30"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="30" id="lxp-gR-aEB"/>
                     </constraints>
@@ -47,11 +47,11 @@
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="3D2-CT-Yds" firstAttribute="leading" secondItem="bTK-MY-vTO" secondAttribute="trailing" constant="40" id="8lj-Sw-Gtz"/>
+                <constraint firstAttribute="trailing" secondItem="3D2-CT-Yds" secondAttribute="trailing" constant="20" symbolic="YES" id="9jH-TR-FcH"/>
                 <constraint firstItem="H5Y-jp-5FY" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" symbolic="YES" id="L30-eT-tVy"/>
                 <constraint firstItem="bTK-MY-vTO" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" symbolic="YES" id="LKf-gG-ppM"/>
                 <constraint firstAttribute="trailing" secondItem="H5Y-jp-5FY" secondAttribute="trailing" constant="20" symbolic="YES" id="UDZ-uF-rwm"/>
-                <constraint firstItem="bTK-MY-vTO" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="20" symbolic="YES" id="ZIj-jV-A0b"/>
+                <constraint firstItem="bTK-MY-vTO" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="4" id="ZIj-jV-A0b"/>
                 <constraint firstAttribute="bottom" secondItem="H5Y-jp-5FY" secondAttribute="bottom" constant="8" id="ZlA-Hc-mn2"/>
                 <constraint firstItem="3D2-CT-Yds" firstAttribute="centerY" secondItem="bTK-MY-vTO" secondAttribute="centerY" id="nhc-Jr-qRI"/>
             </constraints>

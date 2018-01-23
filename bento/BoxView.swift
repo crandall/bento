@@ -8,7 +8,7 @@
 
 import UIKit
 
-class BoxView: UIView {
+class BoxView: UIView, UIGestureRecognizerDelegate {
 
     var view: UIView!
 
@@ -17,6 +17,9 @@ class BoxView: UIView {
     @IBOutlet weak var panelIV : UIImageView!
     @IBOutlet weak var panelWidthLC : NSLayoutConstraint!
     @IBOutlet weak var panelHeightLC : NSLayoutConstraint!
+    
+    var tapGR : UITapGestureRecognizer!
+    var isSelected : Bool = false
     
     var boxId : Int = 0 {
         didSet{
@@ -65,9 +68,30 @@ class BoxView: UIView {
 //        self.view.layer.borderColor = UIColor.orange.cgColor
 //        self.view.layer.borderWidth = 2
         
+        tapGR = UITapGestureRecognizer(target: self, action: #selector(onTapGR))
+        self.view.addGestureRecognizer(tapGR)
+        //set the delegate
+        tapGR.delegate? = self
+        
     }
     
-    func seetSelected(doSelect:Bool){
+    func gestureRecognizerShouldBegin(gestureRecognizer: UIGestureRecognizer) -> Bool {
+        //condition to recognise the gesture
+        return true
+    }
+    
+    @objc func onTapGR(){
+        print("onTapGR")
+        
+        isSelected = !isSelected
+        self.setSelected(doSelect: isSelected)
+        
+    }
+    
+    func setSelected(doSelect:Bool){
+        print("setSelected:\(doSelect)")
+        
+        self.view.layer.borderColor = doSelect ? UIColor.red.cgColor : UIColor.blue.cgColor
         
     }
 
