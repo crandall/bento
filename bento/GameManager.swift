@@ -10,9 +10,10 @@ import UIKit
 
 protocol GameManagerDelegate{
     func gameManagerTestFunc()
+    func logData(text:String)
 }
 
-class GameManager: NSObject {
+class GameManager: NSObject, BoxDelegate {
 
     static let shared = GameManager()
     
@@ -53,16 +54,56 @@ class GameManager: NSObject {
         for i in 0..<16 {
             let b = BoxView(frame: CGRect(x: 0, y: 0, width: boxSize, height: boxSize))
             b.boxId = i
+            b.tag = i
+            b.delegate = self
             boxesA.append(b)
         }
 
-        self.placeBoxes()
+        self.placeAllBoxes()
+        
+        self.logGameData()
+    }
+    
+    func logGameData(){
+        
+        var text = "no box selected"
+        
+        if currSelectedBox != nil{
+            text = "\(currSelectedBox!.tag)"
+        }
+        
+        delegate?.logData(text: text)
+    }
+    
+    func rotateCurrentBox(){
+        if currSelectedBox != nil {
+            currSelectedBox?.rotateBox()
+        }
     }
 
-    func placeBoxes(){
+    func rotateCurrentPanel(){
+        if currSelectedBox != nil {
+            currSelectedBox?.rotatePanel()
+        }
+    }
+
+    func selectOneBox(box:BoxView){
+        for box in boxesA{
+            box.setSelected(doSelect: false)
+        }
+        box.setSelected(doSelect: true)
+    }
+
+    func unselectAllBoxes(){
+        for box in boxesA{
+            box.setSelected(doSelect: false)
+        }
+    }
+
+    func placeAllBoxes(){
         
-        var xLoc : CGFloat = 0
-        var yLoc : CGFloat = 0
+        var xLoc : CGFloat = 1
+        var yLoc : CGFloat = 1
         
         let boxSize : CGFloat = boardFrame.width / 4.0
         
@@ -84,5 +125,29 @@ class GameManager: NSObject {
             
         }
     }
+    
+    //
+    // MARK: BoxDelegate
+    //
+    
+    var currSelectedBoxIdx : Int = -1
+    var currSelectedBox : BoxView?
+    func boxSelected(box:BoxView){
+        print("delegate:boxSelected")
+        if !box.isSelected {
+            self.unselectAllBoxes()
+        }
+        box.toggleSelected()
+        
+        if box.isSelected {
+            currSelectedBoxIdx = box.tag
+            currSelectedBox = box
+        }else{
+            currSelectedBoxIdx = -1
+            currSelectedBox = nil
+        }
+        logGameData()
+    }
+
     
 }

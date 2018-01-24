@@ -14,17 +14,16 @@ enum GameState {
     case movePiece
 }
 
-class GameplayController: UIViewController, GameManagerDelegate, TurnManagerDelegate {
+class GameplayController: UIViewController, GameManagerDelegate, TurnManagerDelegate, BoxHandlerDelegate {
 
-    @IBOutlet weak var titleLabel : UILabel!
+    @IBOutlet weak var gameDataLabel : UILabel!
     var turnManager : TurnManagerView!
+    var boxHandler : BoxHandlerView!
     var gameState : GameState = .none
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        self.titleLabel.text = "GameplayController"
-
+        GameManager.shared.delegate = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -51,6 +50,19 @@ class GameplayController: UIViewController, GameManagerDelegate, TurnManagerDele
         turnManager = TurnManagerView(frame: f)
         turnManager.delegate = self
         self.view.addSubview(turnManager)
+        
+        boxHandler = BoxHandlerView(frame: CGRect.zero)
+        boxHandler.delegate = self
+        boxHandler.translatesAutoresizingMaskIntoConstraints = false
+        self.view.addSubview(boxHandler)
+        
+        boxHandler.addConstraints( constraints:
+            Constraint.bb.of(of: self.view, offset: -40),
+                                   Constraint.LeftToLeft.of(of: self.view, offset: 10),
+                                   Constraint.RightToRight.of(of: self.view, offset: -10),
+                                   Constraint.Height.of(offset: 60)
+        )
+
         
         
 //        var f = CGRect(x: 20, y: 20, width: 100, height: 100)
@@ -90,6 +102,11 @@ class GameplayController: UIViewController, GameManagerDelegate, TurnManagerDele
     func gameManagerTestFunc(){
         print("delegate:gameManagerTestFunc")
     }
+    
+    func logData(text: String) {
+        gameDataLabel.text = text
+    }
+
 
     //
     // MARK: TurnManagerDelegate
@@ -102,5 +119,21 @@ class GameplayController: UIViewController, GameManagerDelegate, TurnManagerDele
     func onMovePiece(){
         turnManager.updateLabel(text: "Move Your Piece")
     }
+
+    //
+    // MARK: BoxHandlerDelegate
+    //
     
+    func onRotateBox(){
+        GameManager.shared.rotateCurrentBox()
+    }
+    
+    func onRotatePanel(){
+        GameManager.shared.rotateCurrentPanel()
+    }
+    
+    func onBoxHandlerDone(){
+        boxHandler.updateLabel(text: "onBoxHandlerDone")
+    }
+
 }

@@ -55,6 +55,8 @@
                 <constraint firstAttribute="bottom" secondItem="H5Y-jp-5FY" secondAttribute="bottom" constant="8" id="ZlA-Hc-mn2"/>
                 <constraint firstItem="3D2-CT-Yds" firstAttribute="centerY" secondItem="bTK-MY-vTO" secondAttribute="centerY" id="nhc-Jr-qRI"/>
             </constraints>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
         </view>
     </objects>

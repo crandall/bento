@@ -64,9 +64,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W3M-0j-i9t">
-                                <rect key="frame" x="166" y="28" width="42" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W3M-0j-i9t">
+                                <rect key="frame" x="20" y="28" width="335" height="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -81,13 +81,14 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="UzU-DO-rYf" firstAttribute="centerX" secondItem="DvU-eP-X4A" secondAttribute="centerX" id="0A9-PV-7qK"/>
-                            <constraint firstItem="W3M-0j-i9t" firstAttribute="centerX" secondItem="DvU-eP-X4A" secondAttribute="centerX" id="eTa-sB-3Jr"/>
+                            <constraint firstItem="W3M-0j-i9t" firstAttribute="leading" secondItem="DvU-eP-X4A" secondAttribute="leading" constant="20" symbolic="YES" id="QMz-ut-P2A"/>
+                            <constraint firstAttribute="trailing" secondItem="W3M-0j-i9t" secondAttribute="trailing" constant="20" symbolic="YES" id="eZG-4t-T3y"/>
                             <constraint firstItem="W3M-0j-i9t" firstAttribute="top" secondItem="WkT-qP-yC9" secondAttribute="bottom" constant="8" symbolic="YES" id="pM6-S3-H8e"/>
                             <constraint firstItem="U26-B0-I8g" firstAttribute="top" secondItem="UzU-DO-rYf" secondAttribute="bottom" constant="8" symbolic="YES" id="pS3-YG-plN"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="titleLabel" destination="W3M-0j-i9t" id="szx-U2-IoL"/>
+                        <outlet property="gameDataLabel" destination="W3M-0j-i9t" id="NiE-7i-c0C"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hKk-K8-CTb" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -20,6 +20,9 @@
 		8DC5450420153A7C00992D90 /* BoxTable.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8DC5450320153A7C00992D90 /* BoxTable.xib */; };
 		8DC5450720153EAB00992D90 /* BoxTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DC5450520153EAB00992D90 /* BoxTableCell.swift */; };
 		8DC5450820153EAB00992D90 /* BoxTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8DC5450620153EAB00992D90 /* BoxTableCell.xib */; };
+		8DDE12E82017F1AA000E2AAD /* BoxHandlerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DDE12E72017F1AA000E2AAD /* BoxHandlerView.swift */; };
+		8DDE12EC2017F791000E2AAD /* APConstraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DDE12EB2017F790000E2AAD /* APConstraints.swift */; };
+		8DDE12EE2017FBBC000E2AAD /* BoxHandlerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8DDE12ED2017FBBC000E2AAD /* BoxHandlerView.xib */; };
 		8DE18649201522D30016FAC2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DE18648201522D30016FAC2 /* AppDelegate.swift */; };
 		8DE1864E201522D30016FAC2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8DE1864C201522D30016FAC2 /* Main.storyboard */; };
 		8DE18650201522D30016FAC2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8DE1864F201522D30016FAC2 /* Assets.xcassets */; };
@@ -40,6 +43,9 @@
 		8DC5450320153A7C00992D90 /* BoxTable.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BoxTable.xib; sourceTree = "<group>"; };
 		8DC5450520153EAB00992D90 /* BoxTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoxTableCell.swift; sourceTree = "<group>"; };
 		8DC5450620153EAB00992D90 /* BoxTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BoxTableCell.xib; sourceTree = "<group>"; };
+		8DDE12E72017F1AA000E2AAD /* BoxHandlerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoxHandlerView.swift; sourceTree = "<group>"; };
+		8DDE12EB2017F790000E2AAD /* APConstraints.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APConstraints.swift; sourceTree = "<group>"; };
+		8DDE12ED2017FBBC000E2AAD /* BoxHandlerView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BoxHandlerView.xib; sourceTree = "<group>"; };
 		8DE18645201522D30016FAC2 /* bento.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = bento.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8DE18648201522D30016FAC2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8DE1864D201522D30016FAC2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -78,6 +84,7 @@
 		8DE18647201522D30016FAC2 /* bento */ = {
 			isa = PBXGroup;
 			children = (
+				8DDE12EB2017F790000E2AAD /* APConstraints.swift */,
 				8DE18648201522D30016FAC2 /* AppDelegate.swift */,
 				8DC544EB201525B400992D90 /* MenuController.swift */,
 				8DC544ED201525CB00992D90 /* GameplayController.swift */,
@@ -96,6 +103,8 @@
 				8DC5450620153EAB00992D90 /* BoxTableCell.xib */,
 				8D6C88EC2016B2D500B1BE2C /* TurnManagerView.swift */,
 				8D6C88EE2016B2E400B1BE2C /* TurnManagerView.xib */,
+				8DDE12E72017F1AA000E2AAD /* BoxHandlerView.swift */,
+				8DDE12ED2017FBBC000E2AAD /* BoxHandlerView.xib */,
 			);
 			path = bento;
 			sourceTree = "<group>";
@@ -162,6 +171,7 @@
 				8DC544F820152B4900992D90 /* BoxView.xib in Resources */,
 				8DC545002015330500992D90 /* Board.xib in Resources */,
 				8DC5450820153EAB00992D90 /* BoxTableCell.xib in Resources */,
+				8DDE12EE2017FBBC000E2AAD /* BoxHandlerView.xib in Resources */,
 				8D6C88EF2016B2E400B1BE2C /* TurnManagerView.xib in Resources */,
 				8DC5450420153A7C00992D90 /* BoxTable.xib in Resources */,
 				8DE18653201522D30016FAC2 /* LaunchScreen.storyboard in Resources */,
@@ -184,6 +194,8 @@
 				8DC544F620152B3C00992D90 /* BoxView.swift in Sources */,
 				8DC544EE201525CB00992D90 /* GameplayController.swift in Sources */,
 				8DC5450220153A5B00992D90 /* BoxTable.swift in Sources */,
+				8DDE12EC2017F791000E2AAD /* APConstraints.swift in Sources */,
+				8DDE12E82017F1AA000E2AAD /* BoxHandlerView.swift in Sources */,
 				8DC5450720153EAB00992D90 /* BoxTableCell.swift in Sources */,
 				8DC544F22015295000992D90 /* GameManager.swift in Sources */,
 			);

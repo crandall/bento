@@ -15,6 +15,7 @@
                 <outlet property="panelHeightLC" destination="Y7Y-m4-Poo" id="XDq-AE-mhr"/>
                 <outlet property="panelIV" destination="RnZ-UN-h3C" id="Kdy-rD-iI0"/>
                 <outlet property="panelWidthLC" destination="uqA-2q-Gi9" id="P0x-vM-ajB"/>
+                <outlet property="selectedView" destination="uNw-2q-PqY" id="iUJ-8c-M7X"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -25,6 +26,10 @@
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="box" translatesAutoresizingMaskIntoConstraints="NO" id="IlA-wl-R38">
                     <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
                 </imageView>
+                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uNw-2q-PqY">
+                    <rect key="frame" x="6" y="6" width="188" height="188"/>
+                    <color key="backgroundColor" red="1" green="0.75686274509999996" blue="0.027450980390000001" alpha="1" colorSpace="calibratedRGB"/>
+                </view>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="panel" translatesAutoresizingMaskIntoConstraints="NO" id="RnZ-UN-h3C">
                     <rect key="frame" x="97.5" y="36" width="5" height="128"/>
                     <constraints>
@@ -41,14 +46,18 @@
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
+                <constraint firstItem="uNw-2q-PqY" firstAttribute="height" secondItem="IlA-wl-R38" secondAttribute="height" constant="-12" id="AMn-xo-qVc"/>
                 <constraint firstItem="FKm-Of-Pat" firstAttribute="top" secondItem="IlA-wl-R38" secondAttribute="top" constant="6" id="EQs-9k-Q8k"/>
                 <constraint firstAttribute="bottom" secondItem="IlA-wl-R38" secondAttribute="bottom" id="O5Q-Cy-9HM"/>
                 <constraint firstItem="IlA-wl-R38" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="OGb-J2-vwe"/>
                 <constraint firstItem="IlA-wl-R38" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="b4l-zg-hHx"/>
                 <constraint firstItem="RnZ-UN-h3C" firstAttribute="centerY" secondItem="IlA-wl-R38" secondAttribute="centerY" id="c7x-rn-SGm"/>
+                <constraint firstItem="uNw-2q-PqY" firstAttribute="centerY" secondItem="IlA-wl-R38" secondAttribute="centerY" id="gC3-NF-Ggb"/>
                 <constraint firstAttribute="trailing" secondItem="IlA-wl-R38" secondAttribute="trailing" id="k1d-2A-Lr0"/>
+                <constraint firstItem="uNw-2q-PqY" firstAttribute="centerX" secondItem="IlA-wl-R38" secondAttribute="centerX" id="o3D-16-t6j"/>
                 <constraint firstItem="RnZ-UN-h3C" firstAttribute="centerX" secondItem="IlA-wl-R38" secondAttribute="centerX" id="qF6-by-GAJ"/>
                 <constraint firstItem="FKm-Of-Pat" firstAttribute="leading" secondItem="IlA-wl-R38" secondAttribute="leading" constant="6" id="qZL-RO-zaY"/>
+                <constraint firstItem="uNw-2q-PqY" firstAttribute="width" secondItem="IlA-wl-R38" secondAttribute="width" constant="-12" id="zdB-OC-E4a"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
         </view>

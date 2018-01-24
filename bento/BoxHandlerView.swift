@@ -1,19 +1,25 @@
 //
-//  Board.swift
+//  BoxHandlerView.swift
 //  bento
 //
-//  Created by Mike Crandall on 1/21/18.
+//  Created by Mike Crandall on 1/23/18.
 //  Copyright © 2018 Eyebrowman. All rights reserved.
 //
 
 import UIKit
 
-class Board: UIView {
+protocol BoxHandlerDelegate {
+    func onRotateBox()
+    func onRotatePanel()
+    func onBoxHandlerDone()
+}
 
+class BoxHandlerView: UIView {
+    
     var view: UIView!
+    var delegate : BoxHandlerDelegate?
     @IBOutlet weak var label : UILabel!
     
-    var boxesA : [BoxView] = []
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -36,7 +42,7 @@ class Board: UIView {
     func loadViewFromNib() -> UIView {
         
         let bundle = Bundle(for: type(of: self))
-        let nib = UINib(nibName: "Board", bundle: bundle)
+        let nib = UINib(nibName: "BoxHandlerView", bundle: bundle)
         let newView = nib.instantiate(withOwner: self, options: nil)[0] as! UIView
         view = newView
         
@@ -48,9 +54,32 @@ class Board: UIView {
     func setUpDisplay(){
         self.view.layer.borderColor = UIColor.gray.cgColor
         self.view.layer.borderWidth = 2
-        self.view.backgroundColor = .clear
-        
-        label.text = "Board"
+        label.text = "BoxHandlerView"
+    }
+
+    func updateLabel(text:String){
+        label.text = text
+    }
+
+    @IBAction func onRotateBox(){
+        if delegate != nil {
+            delegate?.onRotateBox()
+        }
     }
     
+    @IBAction func onRotatePanel(){
+        if delegate != nil {
+            delegate?.onRotatePanel()
+        }
+    }
+
+    @IBAction func onBoxHandlerDone(){
+        if delegate != nil {
+            delegate?.onBoxHandlerDone()
+        }
+    }
+
+    
+    
 }
+

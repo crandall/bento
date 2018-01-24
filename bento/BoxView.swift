@@ -7,16 +7,23 @@
 //
 
 import UIKit
+//import CoreGraphics
+
+protocol BoxDelegate{
+    func boxSelected(box:BoxView)
+}
 
 class BoxView: UIView, UIGestureRecognizerDelegate {
 
     var view: UIView!
+    var delegate : BoxDelegate?
 
     @IBOutlet weak var idLabel : UILabel!
     @IBOutlet weak var boxIV : UIImageView!
     @IBOutlet weak var panelIV : UIImageView!
     @IBOutlet weak var panelWidthLC : NSLayoutConstraint!
     @IBOutlet weak var panelHeightLC : NSLayoutConstraint!
+    @IBOutlet weak var selectedView : UIView!
     
     var tapGR : UITapGestureRecognizer!
     var isSelected : Bool = false
@@ -62,18 +69,37 @@ class BoxView: UIView, UIGestureRecognizerDelegate {
         panelHeightLC.constant = self.frame.height - 10
         panelWidthLC.constant = 5.0
         idLabel.backgroundColor = .clear
-        self.view.layer.borderColor = UIColor.green.cgColor
-        self.view.layer.borderWidth = 1.0
         
-//        self.view.layer.borderColor = UIColor.orange.cgColor
-//        self.view.layer.borderWidth = 2
+        self.selectedView.isHidden = true
         
         tapGR = UITapGestureRecognizer(target: self, action: #selector(onTapGR))
         self.view.addGestureRecognizer(tapGR)
+
         //set the delegate
         tapGR.delegate? = self
         
     }
+    
+    var boxAngle : CGFloat = 0.0
+    var panelAngle : CGFloat = 0.0
+    func rotateBox(){
+        boxAngle += 90
+        panelAngle += 90
+        UIView.animate(withDuration: 0.25, animations: {
+            self.boxIV.transform = CGAffineTransform(rotationAngle: (self.boxAngle * .pi) / 180.0)
+            self.panelIV.transform = CGAffineTransform(rotationAngle: (self.panelAngle * .pi) / 180.0)
+            self.selectedView.transform = CGAffineTransform(rotationAngle: (self.boxAngle * .pi) / 180.0)
+        })
+    }
+
+    func rotatePanel(){
+        panelAngle += 90
+        UIView.animate(withDuration: 0.25, animations: {
+            self.panelIV.transform = CGAffineTransform(rotationAngle: (self.panelAngle * .pi) / 180.0)
+        })
+    }
+
+
     
     func gestureRecognizerShouldBegin(gestureRecognizer: UIGestureRecognizer) -> Bool {
         //condition to recognise the gesture
@@ -82,16 +108,17 @@ class BoxView: UIView, UIGestureRecognizerDelegate {
     
     @objc func onTapGR(){
         print("onTapGR")
-        
+        delegate?.boxSelected(box: self)
+    }
+    
+    func toggleSelected(){
         isSelected = !isSelected
         self.setSelected(doSelect: isSelected)
-        
     }
     
     func setSelected(doSelect:Bool){
-        print("setSelected:\(doSelect)")
-        
-        self.view.layer.borderColor = doSelect ? UIColor.red.cgColor : UIColor.blue.cgColor
+        isSelected = doSelect
+        self.selectedView.isHidden = !doSelect
         
     }
 

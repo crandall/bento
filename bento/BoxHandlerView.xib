@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BoxHandlerView" customModule="bento" customModuleProvider="target">
+            <connections>
+                <outlet property="label" destination="uZc-ZP-p6l" id="qjK-dm-8RX"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nb6-jj-kgZ">
+                    <rect key="frame" x="20" y="0.0" width="75" height="30"/>
+                    <state key="normal" title="Rotate Box"/>
+                    <connections>
+                        <action selector="onRotateBox" destination="-1" eventType="touchUpInside" id="zsX-O5-zYR"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h0h-Mm-GSD">
+                    <rect key="frame" x="144" y="0.0" width="87" height="30"/>
+                    <state key="normal" title="Rotate Panel"/>
+                    <connections>
+                        <action selector="onRotatePanel" destination="-1" eventType="touchUpInside" id="sG2-A5-Oy2"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PuF-9B-hoS">
+                    <rect key="frame" x="318" y="0.0" width="37" height="30"/>
+                    <state key="normal" title="Done"/>
+                    <connections>
+                        <action selector="onBoxHandlerDone" destination="-1" eventType="touchUpInside" id="EKA-kp-Ng9"/>
+                    </connections>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uZc-ZP-p6l">
+                    <rect key="frame" x="20" y="75" width="335" height="17"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" red="1" green="0.75686274509999996" blue="0.027450980390000001" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstItem="h0h-Mm-GSD" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="1xC-lr-cGC"/>
+                <constraint firstItem="h0h-Mm-GSD" firstAttribute="centerY" secondItem="Nb6-jj-kgZ" secondAttribute="centerY" id="5Os-02-ChL"/>
+                <constraint firstItem="PuF-9B-hoS" firstAttribute="centerY" secondItem="Nb6-jj-kgZ" secondAttribute="centerY" id="69F-RR-WV6"/>
+                <constraint firstAttribute="trailing" secondItem="uZc-ZP-p6l" secondAttribute="trailing" constant="20" symbolic="YES" id="7id-5M-JQT"/>
+                <constraint firstAttribute="trailing" secondItem="PuF-9B-hoS" secondAttribute="trailing" constant="20" symbolic="YES" id="BRR-Ax-0xc"/>
+                <constraint firstItem="uZc-ZP-p6l" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" symbolic="YES" id="Iwd-qr-bMd"/>
+                <constraint firstItem="Nb6-jj-kgZ" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="Usi-AB-AEd"/>
+                <constraint firstItem="Nb6-jj-kgZ" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" symbolic="YES" id="aGc-Ul-i4u"/>
+                <constraint firstAttribute="bottom" secondItem="uZc-ZP-p6l" secondAttribute="bottom" constant="8" id="rcI-Qg-RPs"/>
+            </constraints>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+        </view>
+    </objects>
+</document>
