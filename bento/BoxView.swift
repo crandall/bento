@@ -13,6 +13,50 @@ protocol BoxDelegate{
     func boxSelected(box:BoxView)
 }
 
+let boxTypes : [String:Any] = [
+    "ulu" : ["type":"ulu","fileName":"box8"],
+    "uru" : ["type":"uru","fileName":"box4"],
+    "dld" : ["type":"dld","fileName":"box2"],
+    "drd" : ["type":"drd","fileName":"box7"],
+    "uld" : ["type":"uld","fileName":"box1"],
+    "urd" : ["type":"urd","fileName":"box6"],
+    "dlu" : ["type":"dlu","fileName":"box5"],
+    "dru" : ["type":"dru","fileName":"box3"],
+]
+
+enum BoxType : String {
+    case box1 = "ulu"
+    case box2 = "uru"
+    case box3 = "dld"
+    case box4 = "drd"
+    case box5 = "uld"
+    case box6 = "urd"
+    case box7 = "dlu"
+    case box8 = "dru"
+
+    init?(index: Int) {
+        switch index {
+        case 0: self = .box1
+        case 1: self = .box2
+        case 2: self = .box3
+        case 3: self = .box4
+        case 4: self = .box5
+        case 5: self = .box6
+        case 6: self = .box7
+        case 7: self = .box8
+        case 8: self = .box1
+        case 9: self = .box2
+        case 10: self = .box3
+        case 11: self = .box4
+        case 12: self = .box5
+        case 13: self = .box6
+        case 14: self = .box7
+        case 15: self = .box8
+        default: return nil
+        }
+    }
+}
+
 class BoxView: UIView, UIGestureRecognizerDelegate {
 
     var view: UIView!
@@ -25,6 +69,18 @@ class BoxView: UIView, UIGestureRecognizerDelegate {
     @IBOutlet weak var panelHeightLC : NSLayoutConstraint!
     @IBOutlet weak var selectedView : UIView!
     
+    var boxType : BoxType? {
+        didSet{
+            if let boxD = boxTypes[(boxType?.rawValue)!] as! [String:String]?{
+                print("\(boxD)")
+                if let fileName = boxD["fileName"] {
+                    let image = UIImage(named:fileName)
+                    boxIV.image = image
+                }
+            }
+        }
+    }
+    
     var tapGR : UITapGestureRecognizer!
     var isSelected : Bool = false
     
@@ -33,7 +89,7 @@ class BoxView: UIView, UIGestureRecognizerDelegate {
             idLabel.text = "\(boxId)"
         }
     }
-
+    
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         xibSetup()

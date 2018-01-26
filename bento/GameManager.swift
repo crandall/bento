@@ -56,6 +56,7 @@ class GameManager: NSObject, BoxDelegate {
             b.boxId = i
             b.tag = i
             b.delegate = self
+            b.boxType = BoxType(index: i)
             boxesA.append(b)
         }
 

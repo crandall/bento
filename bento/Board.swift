@@ -46,9 +46,9 @@ class Board: UIView {
     }
     
     func setUpDisplay(){
-        self.view.layer.borderColor = UIColor.gray.cgColor
-        self.view.layer.borderWidth = 2
-        self.view.backgroundColor = .clear
+//        self.view.layer.borderColor = UIColor.gray.cgColor
+//        self.view.layer.borderWidth = 20
+//        self.view.backgroundColor = .clear
         
         label.text = "Board"
     }
