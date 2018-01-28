@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13196"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="GamePiece" customModule="bento" customModuleProvider="target">
+            <connections>
+                <outlet property="pieceHeightLC" destination="MWb-1R-usr" id="DxE-pr-aIQ"/>
+                <outlet property="pieceView" destination="zB2-a5-MR2" id="E7E-LL-RHh"/>
+                <outlet property="pieceWidthLC" destination="j4G-GH-F8X" id="hqy-Rg-dTr"/>
+                <outlet property="piece_x_LC" destination="2DU-CO-sAt" id="0Fi-t7-MAj"/>
+                <outlet property="piece_y_LC" destination="0tU-vh-2Uq" id="2rv-0P-DlS"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zB2-a5-MR2">
+                    <rect key="frame" x="4" y="4" width="24" height="24"/>
+                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="24" id="MWb-1R-usr"/>
+                        <constraint firstAttribute="width" constant="24" id="j4G-GH-F8X"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="zB2-a5-MR2" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="4" id="0tU-vh-2Uq"/>
+                <constraint firstItem="zB2-a5-MR2" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="4" id="2DU-CO-sAt"/>
+            </constraints>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+        </view>
+    </objects>
+</document>

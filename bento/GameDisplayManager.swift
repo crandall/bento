@@ -1,30 +1,35 @@
 //
-//  GameManager.swift
+//  GameDisplayManager.swift
 //  bento
 //
-//  Created by Mike Crandall on 1/21/18.
+//  Created by Mike Crandall on 1/27/18.
 //  Copyright © 2018 Eyebrowman. All rights reserved.
 //
 
 import UIKit
 
-protocol GameManagerDelegate{
-    func gameManagerTestFunc()
+protocol GameDisplayManagerDelegate{
+    func gameDisplayManagerTestFunc()
     func logData(text:String)
 }
 
-class GameManager: NSObject, BoxDelegate {
-
-    static let shared = GameManager()
+class GameDisplayManager: NSObject, BoxDelegate {
     
-    var delegate : GameManagerDelegate?
+    static let shared = GameDisplayManager()
+    
+    var delegate : GameDisplayManagerDelegate?
     
     var gameView : UIView!
     var gameFrame : CGRect!
     var boardFrame : CGRect!
     var board : Board!
     var boxesA : [BoxView] = []
-    var boxLocsA : [CGPoint] = []
+    var boxLocsA : [CGRect] = []
+    
+    var player1 : Player!
+    var player2 : Player!
+    var player3 : Player!
+    var player4 : Player!
     
     private override init(){
         super.init()
@@ -48,7 +53,7 @@ class GameManager: NSObject, BoxDelegate {
         self.board = Board(frame: boardFrame)
         self.board.view.backgroundColor = .orange
         self.gameView.addSubview(self.board)
-
+        
         let boxSize : CGFloat = boardFrame.width / 4.0
         boxesA.removeAll()
         for i in 0..<16 {
@@ -59,9 +64,20 @@ class GameManager: NSObject, BoxDelegate {
             b.boxType = BoxType(index: i)
             boxesA.append(b)
         }
-
+        
         self.placeAllBoxes()
         
+        player1 = Player(playerNum: 0, startIdx: 0, playerName:"Player 1")
+        player2 = Player(playerNum: 1, startIdx: 3, playerName:"Player 2")
+        player3 = Player(playerNum: 2, startIdx: 12, playerName:"Player 3")
+        player4 = Player(playerNum: 3, startIdx: 15, playerName:"Player 4")
+        
+        self.gameView.addSubview(player1.gamePiece.pieceView)
+        self.gameView.addSubview(player2.gamePiece.pieceView)
+        self.gameView.addSubview(player3.gamePiece.pieceView)
+        self.gameView.addSubview(player4.gamePiece.pieceView)
+
+
         self.logGameData()
     }
     
@@ -81,26 +97,26 @@ class GameManager: NSObject, BoxDelegate {
             currSelectedBox?.rotateBox()
         }
     }
-
+    
     func rotateCurrentPanel(){
         if currSelectedBox != nil {
             currSelectedBox?.rotatePanel()
         }
     }
-
+    
     func selectOneBox(box:BoxView){
         for box in boxesA{
             box.setSelected(doSelect: false)
         }
         box.setSelected(doSelect: true)
     }
-
+    
     func unselectAllBoxes(){
         for box in boxesA{
             box.setSelected(doSelect: false)
         }
     }
-
+    
     func placeAllBoxes(){
         
         var xLoc : CGFloat = 1
@@ -110,9 +126,10 @@ class GameManager: NSObject, BoxDelegate {
         
         for i in 0..<16 {
             let b = boxesA[i]
-
+            
             // place the box:
             let newFrame = CGRect(x: xLoc, y: yLoc, width: boxSize, height: boxSize)
+            boxLocsA.append(newFrame)
             b.view.frame = newFrame
             board.view.addSubview(b.view)
             
@@ -149,6 +166,8 @@ class GameManager: NSObject, BoxDelegate {
         }
         logGameData()
     }
-
+    
     
 }
+
+

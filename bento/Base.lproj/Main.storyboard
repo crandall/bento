@@ -70,25 +70,44 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="logLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NSY-QW-MpT">
+                                <rect key="frame" x="20" y="588" width="335" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UzU-DO-rYf">
-                                <rect key="frame" x="164" y="629" width="46" height="30"/>
-                                <state key="normal" title="Button"/>
+                                <rect key="frame" x="20" y="629" width="34" height="30"/>
+                                <state key="normal" title="Back"/>
                                 <connections>
                                     <action selector="onDone" destination="Znu-Mh-Tki" eventType="touchUpInside" id="X2N-7c-TWw"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Ff-Gy-UbZ">
+                                <rect key="frame" x="277" y="629" width="78" height="30"/>
+                                <state key="normal" title="Start Game"/>
+                                <connections>
+                                    <action selector="onStartGame" destination="Znu-Mh-Tki" eventType="touchUpInside" id="not-Mc-Du1"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="UzU-DO-rYf" firstAttribute="centerX" secondItem="DvU-eP-X4A" secondAttribute="centerX" id="0A9-PV-7qK"/>
+                            <constraint firstItem="UzU-DO-rYf" firstAttribute="top" secondItem="NSY-QW-MpT" secondAttribute="bottom" constant="20" id="0Te-Jc-Iih"/>
+                            <constraint firstAttribute="trailing" secondItem="3Ff-Gy-UbZ" secondAttribute="trailing" constant="20" symbolic="YES" id="7xt-HP-bUn"/>
                             <constraint firstItem="W3M-0j-i9t" firstAttribute="leading" secondItem="DvU-eP-X4A" secondAttribute="leading" constant="20" symbolic="YES" id="QMz-ut-P2A"/>
+                            <constraint firstItem="U26-B0-I8g" firstAttribute="top" secondItem="3Ff-Gy-UbZ" secondAttribute="bottom" constant="8" symbolic="YES" id="WQl-eu-SVf"/>
+                            <constraint firstItem="NSY-QW-MpT" firstAttribute="leading" secondItem="DvU-eP-X4A" secondAttribute="leading" constant="20" symbolic="YES" id="XHR-I3-L90"/>
                             <constraint firstAttribute="trailing" secondItem="W3M-0j-i9t" secondAttribute="trailing" constant="20" symbolic="YES" id="eZG-4t-T3y"/>
+                            <constraint firstAttribute="trailing" secondItem="NSY-QW-MpT" secondAttribute="trailing" constant="20" symbolic="YES" id="fKC-nH-DfB"/>
+                            <constraint firstItem="UzU-DO-rYf" firstAttribute="leading" secondItem="DvU-eP-X4A" secondAttribute="leading" constant="20" symbolic="YES" id="m5s-hp-8rU"/>
                             <constraint firstItem="W3M-0j-i9t" firstAttribute="top" secondItem="WkT-qP-yC9" secondAttribute="bottom" constant="8" symbolic="YES" id="pM6-S3-H8e"/>
                             <constraint firstItem="U26-B0-I8g" firstAttribute="top" secondItem="UzU-DO-rYf" secondAttribute="bottom" constant="8" symbolic="YES" id="pS3-YG-plN"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="gameDataLabel" destination="W3M-0j-i9t" id="NiE-7i-c0C"/>
+                        <outlet property="logLabel" destination="NSY-QW-MpT" id="gWk-w1-KZm"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hKk-K8-CTb" userLabel="First Responder" sceneMemberID="firstResponder"/>

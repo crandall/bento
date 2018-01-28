@@ -9,15 +9,16 @@
 import UIKit
 
 protocol TurnManagerDelegate {
-    func onRotate()
-    func onMovePiece()
+    func turnRotateBox()
+    func turnRotatePanel()
+    func turnMovePiece()
+    func turnDone()
 }
 
 class TurnManagerView: UIView {
 
     var view: UIView!
     var delegate : TurnManagerDelegate?
-    @IBOutlet weak var label : UILabel!
     
     
     required init?(coder aDecoder: NSCoder) {
@@ -55,23 +56,38 @@ class TurnManagerView: UIView {
         self.view.layer.borderWidth = 2
         self.view.backgroundColor = .clear
         
-        label.text = "TurnManagerView"
     }
     
-    @IBAction func onRotate(){
+    @IBAction func onResetTurn(){
+        print("onResetTurn")
+    }
+    
+    @IBAction func onRotateBox(){
         if delegate != nil {
-            delegate?.onRotate()
+            delegate?.turnRotateBox()
         }
     }
-    
+
+    @IBAction func onRotatePanel(){
+        if delegate != nil {
+            delegate?.turnRotatePanel()
+        }
+    }
+
     @IBAction func onMovePiece(){
         if delegate != nil {
-            delegate?.onMovePiece()
+            delegate?.turnMovePiece()
         }
     }
-    
+
+    @IBAction func onTurnDone(){
+        if delegate != nil {
+            delegate?.turnDone()
+        }
+    }
+
     func updateLabel(text:String){
-        label.text = text
+//        label.text = text
     }
 
 

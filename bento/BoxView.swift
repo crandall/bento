@@ -7,7 +7,6 @@
 //
 
 import UIKit
-//import CoreGraphics
 
 protocol BoxDelegate{
     func boxSelected(box:BoxView)
@@ -72,7 +71,6 @@ class BoxView: UIView, UIGestureRecognizerDelegate {
     var boxType : BoxType? {
         didSet{
             if let boxD = boxTypes[(boxType?.rawValue)!] as! [String:String]?{
-                print("\(boxD)")
                 if let fileName = boxD["fileName"] {
                     let image = UIImage(named:fileName)
                     boxIV.image = image
