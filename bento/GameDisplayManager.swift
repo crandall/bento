@@ -8,16 +8,11 @@
 
 import UIKit
 
-protocol GameDisplayManagerDelegate{
-    func gameDisplayManagerTestFunc()
-    func logData(text:String)
-}
-
-class GameDisplayManager: NSObject, BoxDelegate {
+class GameDisplayManager: NSObject, BoxDelegate, TurnManagerDelegate, BoxHandlerDelegate {
     
     static let shared = GameDisplayManager()
     
-    var delegate : GameDisplayManagerDelegate?
+    var gameController : GameplayController?
     
     var gameView : UIView!
     var gameFrame : CGRect!
@@ -78,19 +73,19 @@ class GameDisplayManager: NSObject, BoxDelegate {
         self.gameView.addSubview(player4.gamePiece.pieceView)
 
 
-        self.logGameData()
     }
     
-    func logGameData(){
+    func logGameData(text:String){
         
-        var text = "no box selected"
+//        var text = "no box selected"
+//
+//        if currSelectedBox != nil{
+//            text = "\(currSelectedBox!.tag)"
+//        }
         
-        if currSelectedBox != nil{
-            text = "\(currSelectedBox!.tag)"
-        }
-        
-        delegate?.logData(text: text)
+//        delegate?.logData(text: text)
     }
+    
     
     func rotateCurrentBox(){
         if currSelectedBox != nil {
@@ -145,13 +140,24 @@ class GameDisplayManager: NSObject, BoxDelegate {
     }
     
     //
-    // MARK: BoxDelegate
+    // MARK: BoxHandlerDelegate
     //
-    
+
     var currSelectedBoxIdx : Int = -1
     var currSelectedBox : BoxView?
+
+    func onRotateBox(){
+        print("GameDisplayManager:onRotateBox")
+        self.rotateCurrentBox()
+    }
+    
+    func onRotatePanel(){
+        print("GameDisplayManager:onRotatePanel")
+        self.rotateCurrentPanel()
+    }
+    
     func boxSelected(box:BoxView){
-        print("delegate:boxSelected")
+        print("GameDisplayManager:boxSelected")
         if !box.isSelected {
             self.unselectAllBoxes()
         }
@@ -160,13 +166,45 @@ class GameDisplayManager: NSObject, BoxDelegate {
         if box.isSelected {
             currSelectedBoxIdx = box.tag
             currSelectedBox = box
+            gameController?.showBoxHandler(doShow: true)
         }else{
             currSelectedBoxIdx = -1
             currSelectedBox = nil
+            gameController?.showBoxHandler(doShow: false)
         }
-        logGameData()
     }
     
+    //
+    // MARK: TurnManagerDelegate
+    //
+    
+    func turnRotateBox(){
+        print("GameDisplayManager:turnRotateBox")
+    }
+    
+    func turnRotatePanel(){
+        print("GameDisplayManager:turnRotatePanel")
+    }
+    
+    func turnMovePiece(){
+        print("GameDisplayManager:turnMovePiece")
+    }
+
+    func turnResetTurn(){
+        print("GameDisplayManager:turnResetTurn")
+    }
+
+    func turnDone(){
+        print("GameDisplayManager:turnDone")
+
+        self.unselectAllBoxes()
+        currSelectedBoxIdx = -1
+        currSelectedBox = nil
+        gameController?.showBoxHandler(doShow: false)
+
+        GameLoop.shared.onPlayerTurnDone()
+    }
+
     
 }
 

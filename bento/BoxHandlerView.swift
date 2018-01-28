@@ -11,14 +11,12 @@ import UIKit
 protocol BoxHandlerDelegate {
     func onRotateBox()
     func onRotatePanel()
-    func onBoxHandlerDone()
 }
 
 class BoxHandlerView: UIView {
     
     var view: UIView!
     var delegate : BoxHandlerDelegate?
-    @IBOutlet weak var label : UILabel!
     
     
     required init?(coder aDecoder: NSCoder) {
@@ -54,12 +52,8 @@ class BoxHandlerView: UIView {
     func setUpDisplay(){
         self.view.layer.borderColor = UIColor.gray.cgColor
         self.view.layer.borderWidth = 2
-        label.text = "BoxHandlerView"
     }
 
-    func updateLabel(text:String){
-        label.text = text
-    }
 
     @IBAction func onRotateBox(){
         if delegate != nil {
@@ -73,11 +67,6 @@ class BoxHandlerView: UIView {
         }
     }
 
-    @IBAction func onBoxHandlerDone(){
-        if delegate != nil {
-            delegate?.onBoxHandlerDone()
-        }
-    }
 
     
     

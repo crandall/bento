@@ -14,7 +14,7 @@ enum GameState {
     case movePiece
 }
 
-class GameplayController: UIViewController, GameDisplayManagerDelegate, TurnManagerDelegate, BoxHandlerDelegate {
+class GameplayController: UIViewController {
 
     @IBOutlet weak var gameDataLabel : UILabel!
     @IBOutlet weak var logLabel : UILabel!
@@ -24,7 +24,6 @@ class GameplayController: UIViewController, GameDisplayManagerDelegate, TurnMana
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        GameDisplayManager.shared.delegate = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -44,25 +43,29 @@ class GameplayController: UIViewController, GameDisplayManagerDelegate, TurnMana
     func setUp(){
         print("setUp")
         
+        GameDisplayManager.shared.gameController = self
+        
         self.view.addSubview(GameDisplayManager.shared.gameView)
 
         let bounds = UIScreen.main.bounds
-        let f = CGRect(x: 10, y: 40, width: bounds.width - 20, height: 60)
+        let f = CGRect(x: 10, y: 40, width: bounds.width - 20, height: 90)
         turnManager = TurnManagerView(frame: f)
-        turnManager.delegate = self
+        turnManager.delegate = GameDisplayManager.shared
         self.view.addSubview(turnManager)
         
         boxHandler = BoxHandlerView(frame: CGRect.zero)
-        boxHandler.delegate = self
+        boxHandler.delegate = GameDisplayManager.shared
         boxHandler.translatesAutoresizingMaskIntoConstraints = false
         self.view.addSubview(boxHandler)
         
         boxHandler.addConstraints( constraints:
-            Constraint.bb.of(of: self.view, offset: -40),
+            Constraint.bb.of(of: self.view, offset: -80),
                                    Constraint.LeftToLeft.of(of: self.view, offset: 10),
                                    Constraint.RightToRight.of(of: self.view, offset: -10),
-                                   Constraint.Height.of(offset: 60)
+                                   Constraint.Height.of(offset: 40)
         )
+        
+        boxHandler.isHidden = true
 
         
         
@@ -100,14 +103,10 @@ class GameplayController: UIViewController, GameDisplayManagerDelegate, TurnMana
         GameLoop.shared.startGame()
     }
 
-    //
-    // MARK: GameDisplayManagerDelegate
-    //
-
-    func gameDisplayManagerTestFunc(){
-        print("delegate:gameManagerTestFunc")
+    func showBoxHandler(doShow:Bool){
+        boxHandler.isHidden = !doShow
     }
-    
+
     func logData(text: String) {
         logLabel.text = text
     }
@@ -117,38 +116,5 @@ class GameplayController: UIViewController, GameDisplayManagerDelegate, TurnMana
     }
 
 
-    //
-    // MARK: TurnManagerDelegate
-    //
-    
-    func turnRotateBox(){
-        print("turnRotateBox")
-    }
-    func turnRotatePanel(){
-        print("turnRotatePanel")
-    }
-    func turnMovePiece(){
-        print("turnMovePiece")
-    }
-    func turnDone(){
-        print("turnDone")
-    }
-
-
-    //
-    // MARK: BoxHandlerDelegate
-    //
-    
-    func onRotateBox(){
-        GameDisplayManager.shared.rotateCurrentBox()
-    }
-    
-    func onRotatePanel(){
-        GameDisplayManager.shared.rotateCurrentPanel()
-    }
-    
-    func onBoxHandlerDone(){
-        boxHandler.updateLabel(text: "onBoxHandlerDone")
-    }
 
 }

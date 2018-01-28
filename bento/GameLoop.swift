@@ -14,6 +14,7 @@ protocol GameLoopDelegate{
 
 struct Player {
 //    var gamePiece : GamePiece = GamePiece(frame: CGRect(x: 0, y: 0, width: 24, height: 24))
+    
     var name : String!
     var gamePiece : GamePiece!
     var currBoxIdx : Int!
@@ -55,6 +56,8 @@ struct Turn {
 class GameLoop: NSObject {
     static let shared = GameLoop()
     var delegate : GameLoopDelegate?
+    var parentController : GameplayController?
+    var turnManager : TurnManagerView?
 
     var playersA : [Player] = [
         GameDisplayManager.shared.player1,
@@ -71,17 +74,44 @@ class GameLoop: NSObject {
     func initGame(){
     }
     
-    func startGame(){
-        self.placePlayersInStartPosition()
-    }
-    
     func placePlayersInStartPosition(){
         for player in playersA {
             player.moveToBox(boxIdx: player.startBoxIdx)
         }
     }
+    
+    
+    var gameOver = false
+    var currPlayer : Player!
+    var currPlayerIdx : Int = 0
+    
+    func startGame(){
+        self.placePlayersInStartPosition()
+        currPlayerIdx = 0
+        currPlayer = playersA[currPlayerIdx]
+        self.takeTurn(player: currPlayer)
 
-    func takeTurn(){
+    }
+    
+    func onPlayerTurnDone(){
+        self.nextTurn()
+    }
+    
+    
+
+    func nextTurn(){
+        currPlayerIdx += 1
+        if currPlayerIdx == playersA.count {
+            currPlayerIdx = 0
+        }
+        
+        GameDisplayManager.shared.logGameData(text: "turn : player \(currPlayerIdx+1)")
+        
+        currPlayer = playersA[currPlayerIdx]
+        self.takeTurn(player: currPlayer)
+    }
+    
+    func takeTurn(player:Player){
         
         // move:
         // turn:
@@ -91,9 +121,8 @@ class GameLoop: NSObject {
         
         
         
-        
-        
     }
     
+
     
 }

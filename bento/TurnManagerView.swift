@@ -13,12 +13,14 @@ protocol TurnManagerDelegate {
     func turnRotatePanel()
     func turnMovePiece()
     func turnDone()
+    func turnResetTurn()
 }
 
 class TurnManagerView: UIView {
 
     var view: UIView!
     var delegate : TurnManagerDelegate?
+    @IBOutlet weak var label : UILabel!
     
     
     required init?(coder aDecoder: NSCoder) {
@@ -59,7 +61,9 @@ class TurnManagerView: UIView {
     }
     
     @IBAction func onResetTurn(){
-        print("onResetTurn")
+        if delegate != nil {
+            delegate?.turnResetTurn()
+        }
     }
     
     @IBAction func onRotateBox(){
@@ -87,7 +91,7 @@ class TurnManagerView: UIView {
     }
 
     func updateLabel(text:String){
-//        label.text = text
+        label.text = text
     }
 
 
