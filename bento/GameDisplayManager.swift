@@ -19,6 +19,7 @@ class GameDisplayManager: NSObject, BoxDelegate, TurnManagerDelegate, BoxHandler
     var boardFrame : CGRect!
     var board : Board!
     var boxesA : [BoxView] = []
+    var adjacentBoxesA : [[Int]] = [[]]
     var boxLocsA : [CGRect] = []
     
     var player1 : Player!
@@ -32,6 +33,25 @@ class GameDisplayManager: NSObject, BoxDelegate, TurnManagerDelegate, BoxHandler
     }
     
     func initItems(){
+        
+        adjacentBoxesA = [
+            [0,1,4],        // 0
+            [1,0,2,5],      // 1
+            [2,1,6,3],      // 2
+            [3,2,7],        // 3
+            [4,0,5,8],      // 4
+            [5,1,4,6,9],    // 5
+            [6,2,5,7,10],   // 6
+            [7,3,6,11],     // 7
+            [8,4,9,12],     // 8
+            [9,5,8,10,13],  // 9
+            [10,6,9,11,14], // 10
+            [11,7,10,15],   // 11
+            [12,8,13],      // 12
+            [13,9,12,14],   // 13
+            [14,10,13,15],  // 14
+            [15,11,14],     // 15
+        ]
         
         // containerView:
         let wFrame = UIScreen.main.bounds
