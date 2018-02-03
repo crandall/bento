@@ -38,7 +38,6 @@ let bottomLeft = "5"
 let leftDown = "6"
 let leftUp = "7"
 
-
 enum BoxType : String {
     case box1 = "leftUp,bottomLeft,rightUp"
     case box2 = "leftUp,bottomRight,rightUp"
@@ -57,29 +56,6 @@ enum BoxType : String {
 //    case box7 = "dlu"
 //    case box8 = "dru"
 
-    func openings(type:BoxType)->[Int]{
-        var posString = ""
-        switch type{
-        case .box1:
-            print("box1")
-        case .box2:
-            print("box2")
-        case .box3:
-            print("box3")
-        case .box4:
-            print("box4")
-        case .box5:
-            print("box5")
-        case .box6:
-            print("box6")
-        case .box7:
-            print("box7")
-        case .box8:
-            print("box8")
-        }
-        
-        return []
-    }
 
     init?(index: Int) {
         switch index {
@@ -193,21 +169,59 @@ class BoxView: UIView, UIGestureRecognizerDelegate {
         }
     }
     
+    func openings()->[Int]{
+        let posString = self.boxType!.rawValue
+        var components = posString.components(separatedBy: ",")
+        let pos = self.currRotatePosition
+        var result : [Int] = []
+        for i in 0..<components.count{
+            let s = components[i]
+            var val : Int = 0
+            switch s {
+            case "topLeft" :
+                val = 0
+            case "topRight" :
+                val = 1
+            case "rightUp" :
+                val = 2
+            case "rightDown" :
+                val = 3
+            case "bottomRight" :
+                val = 4
+            case "bottomLeft" :
+                val = 5
+            case "leftDown" :
+                val = 6
+            case "leftUp" :
+                val = 7
+            default:
+                val = 0
+            }
+            
+            // adjust for current box position
+            var adjusted = val + (pos*2)
+            if adjusted > 7 { adjusted -= 8 }
+            
+            result.append(adjusted)
+        }
+        
+        return result
+    }
+
     var boxAngle : CGFloat = 0.0
     var panelAngle : CGFloat = 0.0
     func rotateBox(direction:RotateDirection){
         var pos = self.currRotatePosition
-        print("boxAngle:\(boxAngle) pos:\(pos)")
+        print("boxAngle:\(boxAngle) pos:\(pos) openings:\(self.openings())")
         if direction == .right {
             boxAngle += 90
             if boxAngle >= 360 { boxAngle = 0.0 }
             panelAngle += 90
         }else if direction == .left {
-            boxAngle = 270  //-= 90
+            boxAngle -= 90
             panelAngle -= 90
         }
-        pos = self.currRotatePosition
-        print("boxAngle:\(boxAngle) pos:\(pos)")
+        
         
         UIView.animate(withDuration: 0.25, animations: {
             self.boxIV.transform = CGAffineTransform(rotationAngle: (self.boxAngle * .pi) / 180.0)
@@ -216,6 +230,12 @@ class BoxView: UIView, UIGestureRecognizerDelegate {
 
         }, completion: { finished in
             print("finished")
+            if self.boxAngle < 0 {
+                self.boxAngle = 360 + self.boxAngle
+            }
+            pos = self.currRotatePosition
+            print("boxAngle:\(self.boxAngle) pos:\(pos) openings:\(self.openings())")
+
         })
 
 //        UIView.animate(withDuration: 0.25, animations: {
