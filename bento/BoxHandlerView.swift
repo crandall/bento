@@ -63,14 +63,12 @@ class BoxHandlerView: UIView {
 
 
     @IBAction func onRotateBoxRight(){
-        print("onRotateBoxRight")
         if delegate != nil {
             delegate?.onRotateBoxRight()
         }
     }
 
     @IBAction func onRotateBoxLeft(){
-        print("onRotateBoxLeft")
         if delegate != nil {
             delegate?.onRotateBoxLeft()
         }

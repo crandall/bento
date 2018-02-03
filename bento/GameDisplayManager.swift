@@ -172,12 +172,10 @@ class GameDisplayManager: NSObject, BoxDelegate, TurnManagerDelegate, BoxHandler
 //    }
     
     func onRotateBoxRight(){
-        print("onRotateBoxRight")
         self.rotateCurrentBox(direction: .right)
     }
     
     func onRotateBoxLeft(){
-        print("onRotateBoxLeft")
         self.rotateCurrentBox(direction: .left)
     }
 

@@ -211,8 +211,8 @@ class BoxView: UIView, UIGestureRecognizerDelegate {
     var boxAngle : CGFloat = 0.0
     var panelAngle : CGFloat = 0.0
     func rotateBox(direction:RotateDirection){
-        var pos = self.currRotatePosition
-        print("boxAngle:\(boxAngle) pos:\(pos) openings:\(self.openings())")
+//        var pos = self.currRotatePosition
+//        print("boxAngle:\(boxAngle) pos:\(pos) openings:\(self.openings())")
         if direction == .right {
             boxAngle += 90
             if boxAngle >= 360 { boxAngle = 0.0 }
@@ -229,11 +229,10 @@ class BoxView: UIView, UIGestureRecognizerDelegate {
             self.selectedView.transform = CGAffineTransform(rotationAngle: (self.boxAngle * .pi) / 180.0)
 
         }, completion: { finished in
-            print("finished")
             if self.boxAngle < 0 {
                 self.boxAngle = 360 + self.boxAngle
             }
-            pos = self.currRotatePosition
+            let pos = self.currRotatePosition
             print("boxAngle:\(self.boxAngle) pos:\(pos) openings:\(self.openings())")
 
         })
