@@ -154,6 +154,7 @@ class BoxView: UIView, UIGestureRecognizerDelegate {
         panelHeightLC.constant = self.frame.height - 10
         panelWidthLC.constant = 5.0
         idLabel.backgroundColor = .clear
+        idLabel.font = UIFont.systemFont(ofSize: 10)
         
         self.selectedView.isHidden = true
         
@@ -162,6 +163,7 @@ class BoxView: UIView, UIGestureRecognizerDelegate {
 
         //set the delegate
         tapGR.delegate? = self
+        
         
     }
     
@@ -219,6 +221,14 @@ class BoxView: UIView, UIGestureRecognizerDelegate {
         
         return result
     }
+    
+    func boardOpenings()->[Int]{
+        var result : [Int] = []
+        
+        let boxOpenings = self.openings()
+        
+        return result
+    }
 
     var boxAngle : CGFloat = 0.0
     var panelAngle : CGFloat = 0.0
@@ -244,11 +254,20 @@ class BoxView: UIView, UIGestureRecognizerDelegate {
             if self.boxAngle < 0 {
                 self.boxAngle = 360 + self.boxAngle
             }
-            let pos = self.currRotatePosition
-            print("boxAngle:\(self.boxAngle) pos:\(pos) openings:\(self.openings())")
+            self.updateLabel()
+//            let pos = self.currRotatePosition
+//            let s = "boxAngle:\(self.boxAngle) pos:\(pos)\nbox:\(self.openings())\nboard:\(self.boardOpenings())"
+//            self.idLabel.text = s
+//            print("angle:\(self.boxAngle)\npos:\(pos)\nbox:\(self.openings())\nboard:\(self.boardOpenings())")
 
         })
 
+    }
+    
+    func updateLabel(){
+        let pos = self.currRotatePosition
+        let s = " pos:\(pos) \(self.boxAngle)\nbox:\(self.openings())\nboard:\(self.boardOpenings())"
+        self.idLabel.text = s
     }
 
     func rotatePanel(){
