@@ -96,14 +96,36 @@ class BoxView: UIView, UIGestureRecognizerDelegate {
     
     var boxType : BoxType? {
         didSet{
-            if let boxD = boxTypes[(boxType?.rawValue)!] as! [String:String]?{
-                if let fileName = boxD["fileName"] {
-                    let image = UIImage(named:fileName)
-                    boxIV.image = image
-                }
+            if let type = boxType {
+                let fileName = self.fileName(type: type) as String
+                let image = UIImage(named:fileName)
+                boxIV.image = image
             }
+//            if let boxD = boxTypes[(boxType?.rawValue)!] as! [String:String]?{
+//                if let fileName = boxD["fileName"] {
+//                    let image = UIImage(named:fileName)
+//                    boxIV.image = image
+//                }
+//            }
         }
     }
+    
+    func fileName(type:BoxType)->String{
+        switch type {
+        case .box1: return "box1"
+        case .box2: return "box2"
+        case .box3: return "box3"
+        case .box4: return "box4"
+        case .box5: return "box5"
+        case .box6: return "box6"
+        case .box7: return "box7"
+        case .box8: return "box8"
+        default:
+            return "box1"
+        }
+        return "box1"
+    }
+
     
     var tapGR : UITapGestureRecognizer!
     var isSelected : Bool = false
@@ -237,13 +259,6 @@ class BoxView: UIView, UIGestureRecognizerDelegate {
 
         })
 
-//        UIView.animate(withDuration: 0.25, animations: {
-//            self.boxIV.transform = CGAffineTransform(rotationAngle: (self.boxAngle * .pi) / 180.0)
-//            self.panelIV.transform = CGAffineTransform(rotationAngle: (self.panelAngle * .pi) / 180.0)
-//            self.selectedView.transform = CGAffineTransform(rotationAngle: (self.boxAngle * .pi) / 180.0)
-//        }completion:{ finished in
-////                self.blurBg.hidden = true
-//        })
     }
 
     func rotatePanel(){
