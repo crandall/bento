@@ -9,8 +9,15 @@
 import UIKit
 
 protocol BoxHandlerDelegate {
-    func onRotateBox()
+//    func onRotateBox()
+    func onRotateBoxRight()
+    func onRotateBoxLeft()
     func onRotatePanel()
+}
+
+enum RotateDirection {
+    case left
+    case right
 }
 
 class BoxHandlerView: UIView {
@@ -55,12 +62,20 @@ class BoxHandlerView: UIView {
     }
 
 
-    @IBAction func onRotateBox(){
+    @IBAction func onRotateBoxRight(){
+        print("onRotateBoxRight")
         if delegate != nil {
-            delegate?.onRotateBox()
+            delegate?.onRotateBoxRight()
         }
     }
-    
+
+    @IBAction func onRotateBoxLeft(){
+        print("onRotateBoxLeft")
+        if delegate != nil {
+            delegate?.onRotateBoxLeft()
+        }
+    }
+
     @IBAction func onRotatePanel(){
         if delegate != nil {
             delegate?.onRotatePanel()

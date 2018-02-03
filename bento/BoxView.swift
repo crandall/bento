@@ -23,15 +23,63 @@ let boxTypes : [String:Any] = [
     "dru" : ["type":"dru","fileName":"box3"],
 ]
 
+//enum testBoxType {
+//    typealias RawValue = [Int]
+//
+//    case box1 = []
+//}
+
+let topLeft = "0"
+let topRight = "1"
+let rightUp = "2"
+let rightDown = "3"
+let bottomRight = "4"
+let bottomLeft = "5"
+let leftDown = "6"
+let leftUp = "7"
+
+
 enum BoxType : String {
-    case box1 = "ulu"
-    case box2 = "uru"
-    case box3 = "dld"
-    case box4 = "drd"
-    case box5 = "uld"
-    case box6 = "urd"
-    case box7 = "dlu"
-    case box8 = "dru"
+    case box1 = "leftUp,bottomLeft,rightUp"
+    case box2 = "leftUp,bottomRight,rightUp"
+    case box3 = "leftDown,bottomLeft,rightDown"
+    case box4 = "leftDown,bottomRight,rightDown"
+    case box5 = "leftUp,bottomLeft,rightDown"
+    case box6 = "leftUp,bottomRight,rightDown"
+    case box7 = "leftDown,bottomLeft,rightUp"
+    case box8 = "leftDown,bottomRight,rightUp"
+//    case box1 = "ulu"
+//    case box2 = "uru"
+//    case box3 = "dld"
+//    case box4 = "drd"
+//    case box5 = "uld"
+//    case box6 = "urd"
+//    case box7 = "dlu"
+//    case box8 = "dru"
+
+    func openings(type:BoxType)->[Int]{
+        var posString = ""
+        switch type{
+        case .box1:
+            print("box1")
+        case .box2:
+            print("box2")
+        case .box3:
+            print("box3")
+        case .box4:
+            print("box4")
+        case .box5:
+            print("box5")
+        case .box6:
+            print("box6")
+        case .box7:
+            print("box7")
+        case .box8:
+            print("box8")
+        }
+        
+        return []
+    }
 
     init?(index: Int) {
         switch index {
@@ -60,6 +108,8 @@ class BoxView: UIView, UIGestureRecognizerDelegate {
 
     var view: UIView!
     var delegate : BoxDelegate?
+    
+    var currRotate : CGFloat = 0.0
 
     @IBOutlet weak var idLabel : UILabel!
     @IBOutlet weak var boxIV : UIImageView!
@@ -134,16 +184,47 @@ class BoxView: UIView, UIGestureRecognizerDelegate {
         
     }
     
+    var currRotatePosition:Int{
+        get{
+            
+            let pos = Int(abs(boxAngle) / 90)
+            
+            return pos
+        }
+    }
+    
     var boxAngle : CGFloat = 0.0
     var panelAngle : CGFloat = 0.0
-    func rotateBox(){
-        boxAngle += 90
-        panelAngle += 90
+    func rotateBox(direction:RotateDirection){
+        var pos = self.currRotatePosition
+        print("boxAngle:\(boxAngle) pos:\(pos)")
+        if direction == .right {
+            boxAngle += 90
+            if boxAngle >= 360 { boxAngle = 0.0 }
+            panelAngle += 90
+        }else if direction == .left {
+            boxAngle = 270  //-= 90
+            panelAngle -= 90
+        }
+        pos = self.currRotatePosition
+        print("boxAngle:\(boxAngle) pos:\(pos)")
+        
         UIView.animate(withDuration: 0.25, animations: {
             self.boxIV.transform = CGAffineTransform(rotationAngle: (self.boxAngle * .pi) / 180.0)
             self.panelIV.transform = CGAffineTransform(rotationAngle: (self.panelAngle * .pi) / 180.0)
             self.selectedView.transform = CGAffineTransform(rotationAngle: (self.boxAngle * .pi) / 180.0)
+
+        }, completion: { finished in
+            print("finished")
         })
+
+//        UIView.animate(withDuration: 0.25, animations: {
+//            self.boxIV.transform = CGAffineTransform(rotationAngle: (self.boxAngle * .pi) / 180.0)
+//            self.panelIV.transform = CGAffineTransform(rotationAngle: (self.panelAngle * .pi) / 180.0)
+//            self.selectedView.transform = CGAffineTransform(rotationAngle: (self.boxAngle * .pi) / 180.0)
+//        }completion:{ finished in
+////                self.blurBg.hidden = true
+//        })
     }
 
     func rotatePanel(){

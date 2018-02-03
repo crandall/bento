@@ -15,10 +15,10 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nb6-jj-kgZ">
-                    <rect key="frame" x="20" y="0.0" width="75" height="30"/>
-                    <state key="normal" title="Rotate Box"/>
+                    <rect key="frame" x="20" y="0.0" width="76" height="30"/>
+                    <state key="normal" title="Rotate Left"/>
                     <connections>
-                        <action selector="onRotateBox" destination="-1" eventType="touchUpInside" id="zsX-O5-zYR"/>
+                        <action selector="onRotateBoxLeft" destination="-1" eventType="touchUpInside" id="X2g-QV-zkb"/>
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h0h-Mm-GSD">
@@ -28,13 +28,22 @@
                         <action selector="onRotatePanel" destination="-1" eventType="touchUpInside" id="sG2-A5-Oy2"/>
                     </connections>
                 </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2UM-TK-T93">
+                    <rect key="frame" x="145" y="0.0" width="85" height="30"/>
+                    <state key="normal" title="Rotate Right"/>
+                    <connections>
+                        <action selector="onRotateBoxRight" destination="-1" eventType="touchUpInside" id="Si1-Oe-kCW"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" red="1" green="0.75686274509999996" blue="0.027450980390000001" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="h0h-Mm-GSD" secondAttribute="trailing" constant="20" symbolic="YES" id="1gV-ug-OU7"/>
                 <constraint firstItem="h0h-Mm-GSD" firstAttribute="centerY" secondItem="Nb6-jj-kgZ" secondAttribute="centerY" id="5Os-02-ChL"/>
+                <constraint firstItem="2UM-TK-T93" firstAttribute="centerY" secondItem="Nb6-jj-kgZ" secondAttribute="centerY" id="AgB-W5-7go"/>
                 <constraint firstItem="Nb6-jj-kgZ" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="Usi-AB-AEd"/>
                 <constraint firstItem="Nb6-jj-kgZ" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" symbolic="YES" id="aGc-Ul-i4u"/>
+                <constraint firstItem="2UM-TK-T93" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="x96-Vg-JMg"/>
             </constraints>
             <nil key="simulatedTopBarMetrics"/>
             <nil key="simulatedBottomBarMetrics"/>

@@ -107,9 +107,9 @@ class GameDisplayManager: NSObject, BoxDelegate, TurnManagerDelegate, BoxHandler
     }
     
     
-    func rotateCurrentBox(){
+    func rotateCurrentBox(direction:RotateDirection){
         if currSelectedBox != nil {
-            currSelectedBox?.rotateBox()
+            currSelectedBox?.rotateBox(direction: direction)
         }
     }
     
@@ -166,10 +166,21 @@ class GameDisplayManager: NSObject, BoxDelegate, TurnManagerDelegate, BoxHandler
     var currSelectedBoxIdx : Int = -1
     var currSelectedBox : BoxView?
 
-    func onRotateBox(){
-        print("GameDisplayManager:onRotateBox")
-        self.rotateCurrentBox()
+//    func onRotateBox(){
+//        print("GameDisplayManager:onRotateBox")
+//        self.rotateCurrentBox()
+//    }
+    
+    func onRotateBoxRight(){
+        print("onRotateBoxRight")
+        self.rotateCurrentBox(direction: .right)
     }
+    
+    func onRotateBoxLeft(){
+        print("onRotateBoxLeft")
+        self.rotateCurrentBox(direction: .left)
+    }
+
     
     func onRotatePanel(){
         print("GameDisplayManager:onRotatePanel")
