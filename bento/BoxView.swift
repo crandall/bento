@@ -13,21 +13,15 @@ protocol BoxDelegate{
 }
 
 let boxTypes : [String:Any] = [
-    "ulu" : ["type":"ulu","fileName":"box8"],
-    "uru" : ["type":"uru","fileName":"box4"],
-    "dld" : ["type":"dld","fileName":"box2"],
-    "drd" : ["type":"drd","fileName":"box7"],
-    "uld" : ["type":"uld","fileName":"box1"],
-    "urd" : ["type":"urd","fileName":"box6"],
-    "dlu" : ["type":"dlu","fileName":"box5"],
-    "dru" : ["type":"dru","fileName":"box3"],
+    "ulu" : ["openings":"leftUp,bottomLeft,rightUp","fileName":"box8"],
+    "uru" : ["openings":"leftUp,bottomRight,rightUp","fileName":"box4"],
+    "dld" : ["openings":"leftDown,bottomLeft,rightDown","fileName":"box2"],
+    "drd" : ["openings":"leftDown,bottomRight,rightDown","fileName":"box7"],
+    "uld" : ["openings":"leftUp,bottomLeft,rightDown","fileName":"box1"],
+    "urd" : ["openings":"leftUp,bottomRight,rightDown","fileName":"box6"],
+    "dlu" : ["openings":"leftDown,bottomLeft,rightUp","fileName":"box5"],
+    "dru" : ["openings":"leftDown,bottomRight,rightUp","fileName":"box3"],
 ]
-
-//enum testBoxType {
-//    typealias RawValue = [Int]
-//
-//    case box1 = []
-//}
 
 let topLeft = "0"
 let topRight = "1"
@@ -39,22 +33,14 @@ let leftDown = "6"
 let leftUp = "7"
 
 enum BoxType : String {
-    case box1 = "leftUp,bottomLeft,rightUp"
-    case box2 = "leftUp,bottomRight,rightUp"
-    case box3 = "leftDown,bottomLeft,rightDown"
-    case box4 = "leftDown,bottomRight,rightDown"
-    case box5 = "leftUp,bottomLeft,rightDown"
-    case box6 = "leftUp,bottomRight,rightDown"
-    case box7 = "leftDown,bottomLeft,rightUp"
-    case box8 = "leftDown,bottomRight,rightUp"
-//    case box1 = "ulu"
-//    case box2 = "uru"
-//    case box3 = "dld"
-//    case box4 = "drd"
-//    case box5 = "uld"
-//    case box6 = "urd"
-//    case box7 = "dlu"
-//    case box8 = "dru"
+    case box1 = "ulu"
+    case box2 = "uru"
+    case box3 = "dld"
+    case box4 = "drd"
+    case box5 = "uld"
+    case box6 = "urd"
+    case box7 = "dlu"
+    case box8 = "dru"
 
 
     init?(index: Int) {
@@ -96,17 +82,12 @@ class BoxView: UIView, UIGestureRecognizerDelegate {
     
     var boxType : BoxType? {
         didSet{
-            if let type = boxType {
-                let fileName = self.fileName(type: type) as String
-                let image = UIImage(named:fileName)
-                boxIV.image = image
+            if let boxD = boxTypes[(boxType?.rawValue)!] as! [String:String]?{
+                if let fileName = boxD["fileName"] {
+                    let image = UIImage(named:fileName)
+                    boxIV.image = image
+                }
             }
-//            if let boxD = boxTypes[(boxType?.rawValue)!] as! [String:String]?{
-//                if let fileName = boxD["fileName"] {
-//                    let image = UIImage(named:fileName)
-//                    boxIV.image = image
-//                }
-//            }
         }
     }
     
@@ -192,7 +173,14 @@ class BoxView: UIView, UIGestureRecognizerDelegate {
     }
     
     func openings()->[Int]{
-        let posString = self.boxType!.rawValue
+//        let posString = self.boxType!.rawValue
+        
+        var posString = ""
+        if let boxD = boxTypes[(boxType?.rawValue)!] as! [String:String]?{
+            posString = boxD["openings"]!
+        }
+
+        
         var components = posString.components(separatedBy: ",")
         let pos = self.currRotatePosition
         var result : [Int] = []
