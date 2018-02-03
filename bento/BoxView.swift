@@ -91,6 +91,8 @@ class BoxView: UIView, UIGestureRecognizerDelegate {
         }
     }
     
+    var boardPosition : Int = 0
+    
     func fileName(type:BoxType)->String{
         switch type {
         case .box1: return "box1"

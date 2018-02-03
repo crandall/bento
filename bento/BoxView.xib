@@ -37,8 +37,8 @@
                         <constraint firstAttribute="width" constant="5" id="uqA-2q-Gi9"/>
                     </constraints>
                 </imageView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FKm-Of-Pat">
-                    <rect key="frame" x="6" y="6" width="42" height="21"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FKm-Of-Pat">
+                    <rect key="frame" x="6" y="6" width="194" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
@@ -46,6 +46,7 @@
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
+                <constraint firstItem="FKm-Of-Pat" firstAttribute="trailing" secondItem="IlA-wl-R38" secondAttribute="trailing" id="6zF-Lg-yaf"/>
                 <constraint firstItem="uNw-2q-PqY" firstAttribute="height" secondItem="IlA-wl-R38" secondAttribute="height" constant="-12" id="AMn-xo-qVc"/>
                 <constraint firstItem="FKm-Of-Pat" firstAttribute="top" secondItem="IlA-wl-R38" secondAttribute="top" constant="6" id="EQs-9k-Q8k"/>
                 <constraint firstAttribute="bottom" secondItem="IlA-wl-R38" secondAttribute="bottom" id="O5Q-Cy-9HM"/>

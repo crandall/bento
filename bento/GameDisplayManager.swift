@@ -77,6 +77,7 @@ class GameDisplayManager: NSObject, BoxDelegate, TurnManagerDelegate, BoxHandler
             b.tag = i
             b.delegate = self
             b.boxType = BoxType(index: i)
+            b.boardPosition = i
             boxesA.append(b)
         }
         
